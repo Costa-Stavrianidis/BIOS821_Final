@@ -26,7 +26,7 @@ class Customer:
         LargeParty: str,
         PetFriendly: str,
         Catering: str,
-        Reviews: str
+        Reviews: str,
     ):
         """Initialize user information."""
         self.Name = Name
@@ -42,7 +42,3 @@ class Customer:
         self.PetFriendly = PetFriendly
         self.Catering = Catering
         self.Reviews = Reviews
-
-        
-
-
