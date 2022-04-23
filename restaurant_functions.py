@@ -15,29 +15,33 @@ class Customer:
     def __init__(
         self,
         Name: str,
-        Coordinates: tuple[float, float],
+        Latitude: float,
+        Longitude: float,
         PriceLevel: list[str],
-        HoursOfOperation: tuple[str, str],
+        OpeningTime: str,
+        ClosingTime: str,
         CuisineType: str,
         RestaurantType: str,
         VeganFriendly: str,
         Delivery: str,
-        CurbSide: str,
+        Curbside: str,
         LargeParty: str,
         PetFriendly: str,
         Catering: str,
-        Reviews: str,
+        Reviews: float,
     ):
         """Initialize user information."""
         self.Name = Name
-        self.Coordinates = Coordinates
+        self.Latitude = Latitude
+        self.Longitude = Longitude
         self.PriceLevel = PriceLevel
-        self.HoursOfOperation = HoursOfOperation
+        self.OpeningTime = OpeningTime
+        self.ClosingTime = ClosingTime
         self.CuisineType = CuisineType
         self.RestaurantType = RestaurantType
         self.VeganFriendly = VeganFriendly
         self.Delivery = Delivery
-        self.CurbSide = CurbSide
+        self.CurbSide = Curbside
         self.LargeParty = LargeParty
         self.PetFriendly = PetFriendly
         self.Catering = Catering
