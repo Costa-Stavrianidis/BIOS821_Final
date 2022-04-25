@@ -244,7 +244,7 @@ def new_comments(restaurant_name: str, message: str):
     return
 
 
-def search_comments(restaurant_name: str, keyword: str):
+def search_comments(restaurant_name = None, keyword = None):
     """Filter comments by restaurant name or keywords or both."""
     cursor = con.cursor()
     if keyword is None and restaurant_name is not None:
