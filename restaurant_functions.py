@@ -236,3 +236,33 @@ def restaurant_ranker(user: Customer) -> list[str]:
     for ordered_restaurants in restaurant_list:
         restaurant_ordered_list.append(ordered_restaurants[0])
     return restaurant_ordered_list
+
+def new_comments(restaurant_name: str, message: str):
+    """Upload new comments for the restaurant."""
+    cursor = con.cursor()
+    cursor.execute("INSERT INTO Comments VALUES(?, ?)", (restaurant_name, message))
+    return
+
+
+def search_comments(restaurant_name: str, keyword: str):
+    """Filter comments by restaurant name or keywords or both."""
+    cursor = con.cursor()
+    if keyword is None and restaurant_name is not None:
+        return list(
+            cursor.execute(
+                "SELECT Comments FROM Comments WHERE Name = ?", (restaurant_name,)
+            )
+        )
+    elif restaurant_name is None and keyword is not None:
+        return list(
+            cursor.execute(
+                "SELECT * FROM Comments WHERE instr(Comments, ?) > 0", (keyword,)
+            )
+        )
+    elif restaurant_name is not None and keyword is not None:
+        return list(
+            cursor.execute(
+                "SELECT Comments FROM Comments WHERE Name = ? and instr(Comments, ?) > 0",
+                (restaurant_name, keyword),
+            )
+        )
