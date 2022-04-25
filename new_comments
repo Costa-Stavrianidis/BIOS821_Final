@@ -1,0 +1,14 @@
+def new_comments(restaurant_name: str, message: str):
+    """Upload new comments for the restaurant."""
+    cursor = con.cursor()
+    cursor.execute("INSERT INTO Comments VALUES(?, ?)", (restaurant_name, message))
+    return
+
+
+def test_new_comments():
+    """Test new_comments"""
+    cur = con.cursor()
+    new_comments("Vin Rouge", "Not good at all")
+    assert (
+        ("Not good at all",) in list(cur.execute("SELECT * FROM Comments WHERE Name = 'Vin Rouge'"))
+    ) == True
