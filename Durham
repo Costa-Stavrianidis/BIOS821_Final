@@ -1,16 +1,16 @@
 Name	Latitude	Longitude	VeganFriendly	Delivery	Curbside	PetFriendly	LargeParty	Catering	CuisineType	RestaurantType	OpeningTime	ClosingTime	Rating	PriceLevel
-Flake's Breakfast Sandwiches	35.8561301	-78.8401081	1	1	1	0	0	0	American	Fast food	7:00	14:00	4.0	$
+Flake's Breakfast Sandwiches	35.8561301	-78.8401081	1	1	1	0	0	0	American	Fast food	07:00	14:00	4.0	$
 Naan Stop	36.0073719	-78.9477810	1	1	1	0	0	0	Indian	Sit down	11:00	22:00	4.5	$$
 Cosmic Cantina	36.0078353	-78.9214698	0	0	0	0	0	0	Mexican	Fast food	12:00	24:00	4.6	$
 Vin Rouge	36.0106356	-78.9225810	1	1	1	1	1	1	French	Sit down	11:00	22:00	4.2	$$$
 Azteca Grill	35.9871719	-78.9257159	0	0	1	0	1	1	Mexican	Sit down	12:00	21:00	4.8	$$
 Shanghai	36.0188189	-78.9477345	1	1	1	0	0	0	Chinese	Sit down	10:00	21:00	4.9	$$
-Costa's	36.0013256	-78.9385824	1	0	1	1	0	0	Greek	Cafe	8:00	14:00	5.0	$
-Hannah's Bagel	35.9957203	-78.9484473	1	0	1	1	0	0	Columbia	Cafe	7:00	13:00	5.0	$
+Costa's	36.0013256	-78.9385824	1	0	1	1	0	0	Greek	Cafe	08:00	14:00	5.0	$
+Hannah's Bagel	35.9957203	-78.9484473	1	0	1	1	0	0	Columbia	Cafe	07:00	13:00	5.0	$
 Wang's Hotpot	35.9626626	-78.9610438	0	0	0	0	1	1	Chinese	Sit down	11:00	22:00	3.8	$$
 M Kokko	35.9971784	-78.9012770	1	0	0	0	0	0	Korean	Sit down	17:00	24:00	4.5	$$
 M Sushi	35.9975740	-78.9011056	1	1	1	0	1	1	Japanese	Sit down	17:00	24:00	4.4	$$$
 Mateo Bar de Tapas	35.9964947	-78.9048889	1	0	0	0	1	1	Spanish	Sit down	17:00	24:00	4.8	$$$$
 Cucciolo Osteria	35.9982675	-78.9063651	1	0	0	0	1	1	Italian	Sit down	17:00	24:00	4.5	$$$$
-PRESS	35.9926689	-78.9045379	1	1	1	1	1	1	American	Cafe	8:00	15:00	4.8	$$
+PRESS	35.9926689	-78.9045379	1	1	1	1	1	1	American	Cafe	08:00	15:00	4.8	$$
 Cook Out	35.9658939	-78.9532714	0	1	1	0	0	1	American	Sit down	10:00	24:00	4.2	$
