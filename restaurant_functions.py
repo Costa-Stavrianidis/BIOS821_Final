@@ -1,4 +1,4 @@
-"""Create restaurant profile and function to be imported by user."""
+"""Create restaurant profile Class and functions to be imported by user."""
 
 import sqlite3
 import numpy as np
@@ -121,6 +121,7 @@ class Customer:
 
 
 def restaurant_ranker(user: Customer) -> list[str]:
+    """Optimization function that ranks restaurants."""
     cur = con.cursor()
     cur.execute("SELECT * FROM Durham")
     restaurant_table = cur.fetchall()
@@ -237,14 +238,8 @@ def restaurant_ranker(user: Customer) -> list[str]:
         restaurant_ordered_list.append(ordered_restaurants[0])
     return restaurant_ordered_list
 
-def new_comments(restaurant_name: str, message: str):
-    """Upload new comments for the restaurant."""
-    cursor = con.cursor()
-    cursor.execute("INSERT INTO Comments VALUES(?, ?)", (restaurant_name, message))
-    return
 
-
-def search_comments(restaurant_name = None, keyword = None):
+def search_comments(restaurant_name=None, keyword=None) -> list[tuple]:
     """Filter comments by restaurant name or keywords or both."""
     cursor = con.cursor()
     if keyword is None and restaurant_name is not None:
@@ -266,3 +261,10 @@ def search_comments(restaurant_name = None, keyword = None):
                 (restaurant_name, keyword),
             )
         )
+
+
+def new_comments(restaurant_name: str, message: str) -> None:
+    """Upload new comments for the restaurant."""
+    cursor = con.cursor()
+    cursor.execute("INSERT INTO Comments VALUES(?, ?)", (restaurant_name, message))
+    return

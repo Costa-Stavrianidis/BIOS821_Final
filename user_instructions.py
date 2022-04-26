@@ -1,6 +1,6 @@
 """"
 This file provides users with instructions on the operation
-and implementation of the restaurant finder profile. Each
+and implementation of the functions within this library. Each
 function will be described in detail below.
 
 """
@@ -10,7 +10,27 @@ from restaurant_functions import (
     parse_comments_data,
     Customer,
     restaurant_ranker,
+    search_comments,
+    new_comments,
 )
+
+"""
+There are two parsing functions dedicated to creating user friendly SQLite tables. This
+section will describe to users the best way to implement these functions. To implement 
+the parse_durham_data() function, users should simply paste within quotations the pathway 
+of the text file for "Durham" restaurant data which should be saved in the same directory 
+as the restaurant_functions.py and this user_instructions.py file. This function will save 
+the contents of the text file into a SQLite table where the columns refer to the different 
+elements of restaurant information, outlined further in the next section where users may create 
+their restaurant profile.
+
+Users may follow the same process for the parse_comments_data() function, implementing the 
+"Comments" data, which should also be saved to the same directory. This function will read the 
+text file and save a SQLite table where the first column contains restaurant names and the second 
+column includes comments about the restaurant from individuals who have given written reviews 
+on the restaurant quality.
+
+"""
 
 parse_durham_data("Durham")
 parse_comments_data("Comments")
@@ -120,6 +140,27 @@ To receive your list of ordered restaurants, simply fill out your restaurant
 profile as a Customer class above, replace the name of your Customer class as the 
 input of the restaurant_ranker function below, save, and run this Python script.
 
+The search_comments() function allows users to input up to two commands that will sort
+through the Comments table and select based on the user input. If the user inputs only the
+name of their restaurant of interest, then the function will return a list of all instances where
+that restaurant received a comment or review. If the user inputs only the keyword, the second
+argument of the function, then this will return a list of all instances where this keyword is 
+mentioned in the comments. When users input both a restaurant name and keyword, this function will 
+return a list that contains comments for that specific restaurant. In the case where users input a 
+name that does not exist within the Comments table, an empty list will be returned.
+
+All inputs should be between quotations. For example, search_comments("M Sushi", "omakase")
+
+The new_comments() function simply provides users the opportunity to input first the name of
+a restaurant in quotations, and secondly, a review about the restaurant. For example,
+new_comments("Hannah's Bagel", "Best bagels ever")
+
+To run these functions, simply give your input for the functions, save, and run this Python script.
+
 """
 
 print(restaurant_ranker(firstname_lastname))
+
+print(search_comments(restaurant_name="Naan Stop", keyword="service"))
+
+new_comments("Naan Stop", "Great Indian food")
