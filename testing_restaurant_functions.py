@@ -1,6 +1,6 @@
 """
-This testing file will assess the functionality of our restaurant
-ranking function.
+This testing file will assess the performance of the functions
+in our library.
 
 """
 
@@ -11,8 +11,8 @@ from restaurant_functions import (
     parse_comments_data,
     Customer,
     restaurant_ranker,
-    new_comments,
     search_comments,
+    new_comments,
     con,
 )
 
@@ -20,8 +20,32 @@ parse_durham_data("Durham")
 parse_comments_data("Comments")
 
 
+def test_parse_durham_data():
+    """Test parse_durham_data."""
+    cur = con.cursor()
+    assert (
+        list(cur.execute("SELECT * FROM Durham WHERE Name = 'Vin Rouge'"))[0][1]
+    ) == 36.0106356
+    assert (
+        list(cur.execute("SELECT * FROM Durham WHERE Name = 'Vin Rouge'"))[0][9]
+    ) == "French"
+
+
+def test_parse_comments_data():
+    """Test parse_comments_data."""
+    cur = con.cursor()
+    assert (
+        list(cur.execute("SELECT * FROM Comments WHERE Name = 'Vin Rouge'"))[0][1]
+    ) == "Good environment"
+
+
 def test_restaurant_ranker():
-    """Test to check best restaurant for fake user is first in the returned list."""
+    """
+    Test to check best restaurant for fake users is first in the returned list.
+    Fake users have preferences that match the restaurant exactly to confirm
+    the function is giving the most optimal restaurant as first in the list.
+
+    """
     fake_customer1 = Customer(
         "Fake Person 1",
         35.9975740,
@@ -59,37 +83,9 @@ def test_restaurant_ranker():
     assert restaurant_ranker(fake_customer1)[0] == "M Sushi"
     assert restaurant_ranker(fake_customer2)[0] == "Cook Out"
 
-def test_parse_durham_data():
-    """Test parse_durham_data."""
-    cur = con.cursor()
-    assert (
-        list(cur.execute("SELECT * FROM Durham WHERE Name = 'Vin Rouge'"))[0][1]
-    ) == 36.0106356
-    assert (
-        list(cur.execute("SELECT * FROM Durham WHERE Name = 'Vin Rouge'"))[0][9]
-    ) == "French"
-
-
-def test_parse_comments_data():
-    """Test parse_durham_data."""
-    cur = con.cursor()
-    assert (
-        list(cur.execute("SELECT * FROM Comments WHERE Name = 'Vin Rouge'"))[0][1]
-    ) == "Good environment"
-
-
-def test_new_comments():
-    """Test new_comments"""
-    cur = con.cursor()
-    new_comments("Vin Rouge", "Not good at all")
-    assert (
-        ("Not good at all",)
-        in list(cur.execute("SELECT Comments FROM Comments WHERE Name = 'Vin Rouge'"))
-    ) == True
-
 
 def test_search_comments():
-    """Test search_comments"""
+    """Test search_comments."""
     assert (search_comments(restaurant_name="M Kokko", keyword="service")) == [
         ("Slow service",)
     ]
@@ -106,3 +102,13 @@ def test_search_comments():
         ("M Kokko", "Slow service"),
         ("Cook Out", "Quick service"),
     ]
+
+
+def test_new_comments():
+    """Test new_comments,"""
+    cur = con.cursor()
+    new_comments("Vin Rouge", "Not good at all")
+    assert (
+        ("Not good at all",)
+        in list(cur.execute("SELECT Comments FROM Comments WHERE Name = 'Vin Rouge'"))
+    ) == True
