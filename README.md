@@ -1,4 +1,4 @@
-# FinalProject_821
+# BIOSTAT 821 Final Project
 
 The general idea behind this project is to have a user input information to create their restaurant profile, and based on this profile,
 the library will have a function that outputs an ordered list of restaurants in Durham based on an optimization function. The restaurants will
